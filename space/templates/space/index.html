@@ -1,5 +1,12 @@
 {% if planets %}
+    <ul>
     {% for planet in planets %}
-        {{planet.name}}
+    <li>
+    <a href="{% url 'space:details' planet.id %}">
+        {{ planet.name }}
+    </a>
+    </li>
+        
     {% endfor %}
+    </ul>
 {% endif %}

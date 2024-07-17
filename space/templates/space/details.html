@@ -1,1 +1,18 @@
-{{planet}}
+{{planet.name}}
+Radius = {{planet.radius}} km
+
+<ul>
+    <table>
+    {%for sat in planet.satellite_set.all%}
+        <tr><td>{{ sat.name }}</td> <td> &nbsp&nbsp radius = {{sat.radius}} km</td></tr>
+    {%endfor%}
+    </table>
+    <form action="{% url 'space:addSatellite' planet.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+        <input type="text" name="name" text="name">
+        <input type="number" name="radius" text="name">
+        <input type="submit">
+        </fieldset>
+    </form>
+</ul>

@@ -4,7 +4,7 @@ from django.db import models
 
 class Planet(models.Model):
     name = models.CharField(max_length=50)
-    size = models.PositiveBigIntegerField()
+    radius = models.PositiveBigIntegerField()
     def __str__(self):
         return self.name
     
@@ -12,6 +12,6 @@ class Planet(models.Model):
 class Satellite(models.Model):
     planet = models.ForeignKey(Planet, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    size = models.PositiveBigIntegerField()
+    radius = models.PositiveBigIntegerField()
     def __str__(self):
         return self.name
